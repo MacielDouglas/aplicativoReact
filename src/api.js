@@ -55,7 +55,7 @@ export function PHOTO_POST(formData, token) {
   return {
     url: API_URL + '/api/photo',
     options: {
-      method: 'PHOST',
+      method: 'POST',
       headers: {
         Authorization: 'Bearer ' + token,
       },
@@ -94,6 +94,18 @@ export function COMMENT_POST(id, body) {
         Authorization: 'Bearer' + window.localStorage.getItem('token'),
       },
       body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PHOTO_DELETE(id) {
+  return {
+    url: `${API_URL}/api/photo/${id}`,
+    options: {
+      method: 'DELETE',
+      headers: {
+        Authorization: 'Bearer' + window.localStorage.getItem('token'),
+      },
     },
   };
 }
